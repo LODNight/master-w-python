@@ -70,6 +70,10 @@ orders = [
 # Yêu cầu: Dùng một dòng lệnh duy nhất (kết hợp sum và List Comprehension 2 tầng for) để tính tổng tiền.Công thức: Tổng = price x qty của tất cả item trong tất cả order.
 # Kết quả mong muốn: 45
 
+result = sum([i["price"]*i["qty"] for item in orders for i in item["items"]])
+
+print("\nCau 4:")
+print(result)
 
 
 
@@ -90,3 +94,9 @@ target_dept = 'IT'
 # Sử dụng List Comprehension để lọc tên.
 # Sử dụng hàm ", ".join(...) để nối chuỗi.
 # Sử dụng f-string để format kết quả cuối.
+
+result = [i["name"] for i in employees if i["dept"] == target_dept]
+
+print("\nCau 5:")
+print(f"Nhan vien phong {target_dept} gom: {' ,'.join(result)}")
+
