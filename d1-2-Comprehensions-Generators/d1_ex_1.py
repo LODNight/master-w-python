@@ -67,3 +67,6 @@ slug = [t.lower().replace(" ", "-") for t in titles]
 
 print("\nCau 4:")
 print(slug)
+
+
+
