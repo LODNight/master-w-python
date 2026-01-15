@@ -53,3 +53,16 @@ print(out)
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 out = [num for col in matrix for num in col]
 print(out)
+
+# Bài 8: Bài thực tế
+# Đề bài: Bạn có một danh sách chứa thông tin sản phẩm. 
+# Hãy tạo một list chỉ chứa tên của các sản phẩm có giá lớn hơn 500.
+products = [
+    {'name': 'Laptop', 'price': 1000},
+    {'name': 'Mouse', 'price': 20},
+    {'name': 'Monitor', 'price': 600},
+    {'name': 'Keyboard', 'price': 100}
+]
+
+product_out_600 = [product['name'] for product in products if product['price'] >= 600]
+print(product_out_600)
