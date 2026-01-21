@@ -17,7 +17,9 @@ rows = [
 clean_header = [i.strip() for i in headers]
 clean_data = [
     dict(zip(clean_header,
-        [val.strip() if isinstance(val, str) else val for val in row]
+        [val.strip() 
+         if isinstance(val, str) else val 
+         for val in row]
         ))
         for row in rows
 ]
