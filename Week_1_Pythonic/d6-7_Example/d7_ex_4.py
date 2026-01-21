@@ -9,8 +9,19 @@
 # Gửi cho 1 người, không option
 # Output: Print ra log mô phỏng việc gửi là được.
 
-def send_email():
-    return
+def send_email(subject, *recipients, **options):
+    to_str = ", ".join(recipients)
+
+    print(f"SENDING: '{subject}")
+    print(f"  to: {to_str}")
+
+    cc_list = options.get('cc')
+    if cc_list:
+        print(f"  CC: {', '.join(cc_list)}")
+
+    if options.get('urgent') == True:
+        print("Flag: Khan cap")
+    print("-"*30)
 
 
 send_email("Hop lop", "a@gmail.com") 
