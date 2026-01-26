@@ -13,13 +13,10 @@ def timer(func):
     @functools.wraps(func)
 
     def wrapper(*args, **kwargs):
-        # TODO 2: Lấy thời gian bắt đầu (biến start_time)
         start_time = time.time()
         
-        # TODO 3: Gọi hàm gốc với đúng tham số và lưu kết quả vào biến result
         result = func(*args, **kwargs)
 
-        # TODO 4: Lấy thời gian kết thúc (biến end_time)
         end_time = time.time()
         
         # TODO 5: Tính toán thời gian chạy và In ra màn hình
