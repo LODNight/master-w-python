@@ -7,7 +7,7 @@ import time
 import functools
 
 def timer(func):
-    """Decorator đo thời gian chạy của hàm"""
+    """Decorator đo thời gian chạy của hàm"""   # docstring của hàm
     
     # TODO 1: Thêm dòng code để giữ nguyên tên và docstring của hàm gốc (Metadata)
     @functools.wraps(func)
@@ -31,13 +31,13 @@ def timer(func):
 
     return wrapper
 
-# --- TEST CASE (Đừng sửa phần này) ---
+# --- TEST CASE ---
 @timer
 def heavy_computation(n):
-    """Hàm giả lập tính toán nặng"""
+    """Hàm giả lập tính toán nặng"""    # docstring của hàm 
     print(f"🔄 Đang tính tổng bình phương của {n} số đầu tiên...")
-    # Giả vờ tính toán (ngủ 1 giây)
-    time.sleep(1) 
+    
+    time.sleep(1)  # Giả vờ tính toán (ngủ 1 giây)
     return sum(i**2 for i in range(n))
 
 # CHẠY THỬ
@@ -48,5 +48,3 @@ print(f"✅ Kết quả trả về: {res}")
 # KIỂM TRA METADATA
 print("-" * 20)
 print(f"Tên hàm thật là: {heavy_computation.__name__}") 
-# Nếu làm đúng, nó phải in ra 'heavy_computation'. 
-# Nếu sai (quên functools), nó sẽ in ra 'wrapper'.
