@@ -26,3 +26,17 @@ print(Student.total_students)
 
 Student.set_school_name("Future Academy")
 print(s1.school_names)
+
+
+class Student_2:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    @classmethod
+    def from_string(cls,data_str):
+        name,age = data_str.split("-")
+        return cls(name,int(age))
+    
+sv = Student_2.from_string("Tin-22")
+print(sv.name,sv.age)
