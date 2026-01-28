@@ -15,5 +15,5 @@ def repeat(times):
             for _ in range(times):
                 result = func(*args, **kwargs)
             return result
-        return wrapper
-    return actual_decorator
+        return wrapper          # Trả về lớp 3
+    return actual_decorator     # Trả về lớp 2
