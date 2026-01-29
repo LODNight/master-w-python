@@ -1,36 +1,35 @@
-class Student:
-    def __init__(self, name, student_id, gpa=0):
-        self.name = name
-        self.student_id = student_id
-        self.gpa = gpa
+# Thuộc tính: owner (Tên chủ thẻ), balance (Số dư - mặc định là 0 nếu không nạp lúc mở thẻ).
 
-    # TODO 1: Viết __str__ trả về "Student: [ID] - [Name]"
-    def __str__(self):
-        return f"Student: {self.student_id} - {self.name}"
+# Hành động:
+# deposit(amount): Nạp tiền. (Phải kiểm tra amount > 0).
+# withdraw(amount): Rút tiền. (Phải kiểm tra amount > 0 VÀ amount <= balance). Nếu rút lố thì báo lỗi.
+# show_balance(): In ra "Chủ thẻ: [Tên] - Số dư: [Tiền] VND".
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        # TODO: Gán thuộc tính
+        self.owner = owner
+        self.balance = balance
 
-    # TODO 2: Viết __eq__ so sánh dựa trên student_id
-    def __eq__(self, other):
-        return self.student_id == other.student_id
+    def deposit(self, amount):
+        # TODO: Kiểm tra > 0 -> Cộng tiền -> In thông báo
+        if amount > 0:
+            self.balance += amount
 
-    # TODO 3: Viết __gt__ so sánh dựa trên gpa (Lớn hơn)
-    def __gt__(self, other):
-        return self.gpa > other.gpa
+    def withdraw(self, amount):
+        # TODO: Kiểm tra đủ tiền không -> Trừ tiền -> In thông báo
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            print(f"Rút {amount} thành công. Số dư mới: {self.balance}")
+        else: 
+            print(f"Error: Không thể rút tiền. Số dư hiện tại: {self.balance}")
 
-# --- TEST CASE ---
-s1 = Student("Tin", "SV01", 8.0)
-s2 = Student("Khuu Tin", "SV01", 9.0) # Cùng ID với s1 (Giả sử nhập trùng)
-s3 = Student("An", "SV02", 7.5)
+    def show_balance(self):
+        # TODO: In thông tin
+        print(f"Chủ thẻ: {self.owner} - Số dư: {self.balance}")
 
-print("--- Test hiển thị ---")
-print(s1) 
-# Mong đợi: Student: SV01 - Tin
-
-print("\n--- Test so sánh bằng (ID) ---")
-if s1 == s2:
-    print("✅ Hai học sinh này là một (Trùng ID)!")
-else:
-    print("❌ Khác nhau")
-
-print("\n--- Test so sánh điểm ---")
-if s1 > s3:
-    print(f"✅ {s1.name} điểm cao hơn {s3.name}")
+# --- TEST ---
+acc = BankAccount("Tin", 1000) # Mở thẻ nạp sẵn 1000
+acc.deposit(500)   # Dư 1500
+acc.withdraw(2000) # Lỗi: Không đủ tiền
+acc.withdraw(200)  # Dư 1300
+acc.show_balance()

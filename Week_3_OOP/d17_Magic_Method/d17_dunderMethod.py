@@ -27,6 +27,7 @@ class Student:
         # So sánh dựa trên điểm GPA
         return self.gpa > other.gpa
 
+    # 4. Sử dụng __repr__ cho DEV (giống với __str__)
     def __repr__(self):
         return f"Student: {self.name} - {self.gpa}"
 
