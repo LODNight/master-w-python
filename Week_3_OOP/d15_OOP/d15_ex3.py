@@ -14,7 +14,7 @@ class Product:
         return self.price * self.quantity
 
     def sell(self, amount):
-        if 0 < amount < self.quantity:
+        if 0 < amount <= self.quantity:
             self.quantity -= amount
             print(f"Bán {amount} cái. Còn lại {self.quantity}")
         else: 
