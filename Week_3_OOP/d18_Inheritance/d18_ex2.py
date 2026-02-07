@@ -20,8 +20,6 @@ class CreditCard(Payment):
 
 
 class Momo(Payment):
-    # TODO: Ghi đè (Override) hàm process_payment
-    # In ra: "💸 Trừ tiền ví Momo: -[amount] VND"
     def process_payment(self, amount):
         super().process_payment(amount)
         print(f"💸 Trừ tiền ví Momo: -[{amount}] VND")
